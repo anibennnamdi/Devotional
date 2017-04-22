@@ -9,11 +9,11 @@ module.exports = function (express, app) {
 		res.json("API Home Page");
 	})
 	router.post('/api/v1/ministry/add', ministryCtrl.save);
-	router.get('/api/v1/ministries', ministryCtrl.get);
+	router.get('/api/v1/ministries.json', ministryCtrl.get);
 	router.delete('/api/v1/ministry/delete', ministryCtrl.delete);
 	router.get('/api/v1/devotion', devotionCtrl.get);
 	router.post('/api/v1/devotion/add', devotionCtrl.save);
-	
+
 	app.use('/', router);
 
 }
