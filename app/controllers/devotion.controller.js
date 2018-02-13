@@ -9,10 +9,19 @@ module.exports = {
         });
 
     },
+    
+    findOne: function (req, res, next) {
+        Devotion.find({ ministry_id: req.params.id }, function (err, result) {
+            if (err) return next(err);
+            res.status(200).json({ status: 1, message: null, data: result });
+        });
+    },
     save: function (req, res, next) {
+        var seeDate = req.body.devoDate;
+        
         var devotioncont = new Devotion({
             ministry_id: req.body.ministry_id,
-            devoDate: req.body.devoDate,
+            devoDate: seeDate,
             devoTopic: req.body.devoTopic,
             devoText: req.body.devoText,
             devoMessage: req.body.devoMessage,

@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var DevSchema = new Schema({
     ministry_id: { type: Schema.Types.ObjectId, ref: 'Ministry' },
-    devoDate: { type: Date, required: true },
+    devoDate: { type: Date, required: true,default:Date.now() },
     devoTopic: { type: String },
     devoText: { type: String },
     devoMessage: { type: String },

@@ -12,6 +12,7 @@ module.exports = function (express, app) {
 	router.get('/api/v1/ministries.json', ministryCtrl.get);
 	router.delete('/api/v1/ministry/delete', ministryCtrl.delete);
 	router.get('/api/v1/devotion', devotionCtrl.get);
+	router.get('/api/v1/devotion/:id', devotionCtrl.findOne);
 	router.post('/api/v1/devotion/add', devotionCtrl.save);
 
 	app.use('/', router);
