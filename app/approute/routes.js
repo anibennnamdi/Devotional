@@ -10,7 +10,8 @@ module.exports = function (express, app) {
 	})
 	router.post('/api/v1/ministry/add', ministryCtrl.save);
 	router.get('/api/v1/ministries', ministryCtrl.get);
-	router.delete('/api/v1/ministry/delete', ministryCtrl.delete);
+	router.get('/api/v1/ministries/:id', ministryCtrl.getById);
+	router.delete('/api/v1/ministry/del/:id', ministryCtrl.deleteOne);
 	router.get('/api/v1/devotion', devotionCtrl.get);
 	router.get('/api/v1/devotion/:id', devotionCtrl.findOnes);
 	router.get('/api/v1/devotion/date/:id', devotionCtrl.findDate);

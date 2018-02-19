@@ -29,7 +29,14 @@ module.exports={
         Ministry.find({}).remove().exec(function (err, result) {
             res.json({result});
         })
+    },
+
+    deleteOne:function(req,res,next){
+        Ministry.findOne({_id:req.params.id}).remove().exec(function (err, result) {
+            res.json({result});
+        })
     }
+
 
 }
 
