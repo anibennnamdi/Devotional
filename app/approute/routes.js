@@ -1,5 +1,6 @@
 var ministryCtrl = require('../controllers/ministry.controller');
 var devotionCtrl = require('../controllers/devotion.controller');
+var userCtrl = require('../controllers/users.controller')
 
 module.exports = function (express, app) {
 
@@ -8,6 +9,8 @@ module.exports = function (express, app) {
 	router.get('/', function (req, res) {
 		res.json("API Home Page");
 	})
+	router.post('/api/v1/users/add', userCtrl.save);
+	router.get('/api/v1/users', userCtrl.get);
 	router.post('/api/v1/ministry/add', ministryCtrl.save);
 	router.get('/api/v1/ministries', ministryCtrl.get);
 	router.get('/api/v1/ministries/:id', ministryCtrl.getById);

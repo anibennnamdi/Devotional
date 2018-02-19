@@ -40,7 +40,8 @@ module.exports={
 
     deleteOne:function(req,res,next){
         Ministry.findOne({_id:req.params.id}).remove().exec(function (err, result) {
-            res.json({result});
+            //res.json({result});
+            res.json({ status: 1, message: "Deleted!", data: result });
         })
     }
 
