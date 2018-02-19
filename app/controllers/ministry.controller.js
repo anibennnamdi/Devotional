@@ -8,7 +8,7 @@ module.exports={
 //console.log(Ministry);
     },
     getById:function(req,res,next){
-        Ministry.find({_id:req.body.id},function(err,result){
+        Ministry.find({_id:req.params.id},function(err,result){
             if(err) return next(err);
             res.status(200).json({status:1,message:null,data:result});
         });
