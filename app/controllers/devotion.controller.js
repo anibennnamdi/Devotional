@@ -10,8 +10,14 @@ module.exports = {
 
     },
     
-    findOne: function (req, res, next) {
+    findOnes: function (req, res, next) {
         Devotion.find({ ministry_id: req.params.id }, function (err, result) {
+            if (err) return next(err);
+            res.status(200).json({ status: 1, message: null, data: result });
+        });
+    },
+    findDate: function (req, res, next) {
+        Devotion.find({ devoDate: req.params.id }, function (err, result) {
             if (err) return next(err);
             res.status(200).json({ status: 1, message: null, data: result });
         });
@@ -33,7 +39,7 @@ module.exports = {
             } else {
                 res.status(201).json({
                     status: 1,
-                    message: 'Category has been created successfully',
+                    message: 'Devotion has been created successfully',
                     data: response
                 });
             }
