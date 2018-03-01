@@ -90,11 +90,11 @@ module.exports = {
     },
     check: function (req, res, next) {
         var usercont = new Users({
-            name: req.body.name,
+            email: req.body.email,
             password: req.body.password
         });
 
-        Users.findOne({ name: req.body.name }, function (err, existingUser) {
+        Users.findOne({ email: req.body.email }, function (err, existingUser) {
             console.log("existingUser", existingUser);
             if (err) return next(err);
             if (!existingUser) {
@@ -110,7 +110,7 @@ module.exports = {
                 if (err) return next(err);
                 res.status(201).json({
                     status: 1,
-                    message: 'updated successfully',
+                    message: 'login successful!',
                     data: existingUser
                 });
             });

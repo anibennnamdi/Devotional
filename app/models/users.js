@@ -22,7 +22,7 @@ var UserSchema = new Schema({
     
     logged: {
         type: Number,
-        //default:0
+        default:0
     }
 
 });
