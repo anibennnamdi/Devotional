@@ -95,7 +95,7 @@ module.exports = {
         });
         console.log("newUser =",usercont);
 
-        Users.findOne({ email: req.body.email }, function (err, existingUser) {
+        Users.findOne({ email: req.params.email }, function (err, existingUser) {
             console.log("existingUser", existingUser);
             if (err) return next(err);
             if (!existingUser) {
