@@ -93,6 +93,7 @@ module.exports = {
             email: req.body.email,
             password: req.body.password
         });
+        console.log("newUser =",usercont);
 
         Users.findOne({ email: req.body.email }, function (err, existingUser) {
             console.log("existingUser", existingUser);
