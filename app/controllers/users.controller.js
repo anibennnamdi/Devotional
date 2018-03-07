@@ -102,7 +102,7 @@ module.exports = {
                 console.log("wromg username", existingUser);
                 return next(null, false, res.json({ "message": "user " + existingUser +" does not exist yet" }));
             }
-            if (!existingUser.comparePassword(req.body.password)) {
+            if (!existingUser.comparePassword(usercont.password)) {
                 return next(null, false, res.json({ "message": "Please enter correct password" }));
             }
             // return next(existingUser, null);
