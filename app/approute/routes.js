@@ -10,7 +10,7 @@ module.exports = function (express, app) {
 		res.json("API Home Page");
 	})
 	router.post('/api/v1/users/add', userCtrl.save);
-	router.get('/api/v1/users/check', userCtrl.check); // changed it from post to get
+	router.post('/api/v1/users/check', userCtrl.check); // changed it from post to get
 	router.get('/api/v1/users', userCtrl.get);
 	router.get('/api/v1/users/:email',userCtrl.findemail);
 	router.post('/api/v1/ministry/add', ministryCtrl.save);
