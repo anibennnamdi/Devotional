@@ -103,7 +103,7 @@ module.exports = {
                 return next(null, false, res.json({ "message": "user " + usercont.email +" does not exist yet" }));
             }
             if (!existingUser.comparePassword(usercont.password)) {
-                return next(null, false, res.json({ "message": "Please enter correct password" }));
+                return next(null, false, res.json({  "status": 0,"message": "Please enter correct password" }));
             }
             // return next(existingUser, null);
             existingUser.logged++;
