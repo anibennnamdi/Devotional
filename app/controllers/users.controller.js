@@ -77,7 +77,7 @@ module.exports = {
         });
     },
     findemail: function (req, res, next) {
-        Users.findOne({ email: req.params.id }, function (err, result) {
+        Users.findOne({ email: req.params.email }, function (err, result) {
             if (err) return next(err);
             res.status(200).json({ status: 1, message: null, data: result });
         });

@@ -12,6 +12,7 @@ module.exports = function (express, app) {
 	router.post('/api/v1/users/add', userCtrl.save);
 	router.post('/api/v1/users/check', userCtrl.check);
 	router.get('/api/v1/users', userCtrl.get);
+	router.get('/api/v1/users/:email',userCtrl.findemail);
 	router.post('/api/v1/ministry/add', ministryCtrl.save);
 	router.get('/api/v1/ministries', ministryCtrl.get);
 	router.get('/api/v1/ministries/:id', ministryCtrl.getById);
