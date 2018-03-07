@@ -99,7 +99,7 @@ module.exports = {
             if (err) return next(err);
             if (!existingUser) {
                 console.log("wromg username", existingUser);
-                return next(null, false, res.json({ "message": "user does not exist yet" }));
+                return next(null, false, res.json({ "message": "user " + existingUser +" does not exist yet" }));
             }
             if (!existingUser.comparePassword(req.body.password)) {
                 return next(null, false, res.json({ "message": "Please enter correct password" }));
