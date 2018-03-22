@@ -1,11 +1,11 @@
-var Users = require('../models/users');
+var Profiles = require('../models/profile');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
 module.exports = {
     get: function (req, res, next) {
 
-        Users.find({}, function (err, result) {
+        Profiles.find({}, function (err, result) {
             if (err) return next(err);
             res.status(200).json({ status: 1, message: null, data: result });
         });
@@ -95,12 +95,12 @@ module.exports = {
         });
         console.log("newUser =",usercont);
 
-        Users.findOne({ email: req.body.email }, function (err, existingUser) {
+        Users.findOne({ email: usercont.email }, function (err, existingUser) {
             console.log("existingUser", existingUser);
             if (err) return next(err);
             if (!existingUser) {
                 console.log("wromg username", existingUser);
-                return next(null, false, res.json({ "message": "user " + req.body.email +" does not exist yet" }));
+                return next(null, false, res.json({ "message": "user " + usercont.email +" does not exist yet" }));
             }
             if (!existingUser.comparePassword(usercont.password)) {
                 return next(null, false, res.json({  "status": 0,"message": "Please enter correct password" }));
