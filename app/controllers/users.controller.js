@@ -64,7 +64,7 @@ module.exports = {
             res.status(200).json({ status: 1, message: null, data: result });
         });
     },
-    findOne: function (req, res, next) {
+    findById: function (req, res, next) {
         Users.findOne({ _id: req.params.id }, function (err, result) {
             if (err) return next(err);
             res.status(200).json({ status: 1, message: "ok", data: result });

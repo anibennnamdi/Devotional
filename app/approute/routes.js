@@ -13,6 +13,7 @@ module.exports = function (express, app) {
 	router.post('/api/v1/users/check', userCtrl.check); // changed it from post to get
 	router.get('/api/v1/users', userCtrl.get);
 	router.get('/api/v1/users/:email',userCtrl.findemail);
+	router.get('/api/v1/users/:id',userCtrl.findById);
 	router.post('/api/v1/ministry/add', ministryCtrl.save);
 	router.get('/api/v1/ministries', ministryCtrl.get);
 	router.get('/api/v1/ministries/:id', ministryCtrl.getById);
